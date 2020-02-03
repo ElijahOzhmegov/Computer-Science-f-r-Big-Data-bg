@@ -1,0 +1,218 @@
+ ✘ elijahozhmegov@Elijahs-MacBook-Air  ~/Education/Uni/CS for Big Data/mongoDB/mongodb-macos-x86_
+64-enterprise-4.2.1/bin  ./mongo
+MongoDB shell version v4.2.1
+connecting to: mongodb://127.0.0.1:27017/?compressors=disabled&gssapiServiceName=mongodb
+Implicit session: session { "id" : UUID("d06f2448-86f2-4f1d-ba24-5e44151205d0") }
+MongoDB server version: 4.2.1
+Server has startup warnings:
+2019-10-24T00:20:23.074+0200 I  CONTROL  [initandlisten]
+2019-10-24T00:20:23.074+0200 I  CONTROL  [initandlisten] ** WARNING: Access control is not enabled
+ for the database.
+2019-10-24T00:20:23.074+0200 I  CONTROL  [initandlisten] **          Read and write access to data
+ and configuration is unrestricted.
+2019-10-24T00:20:23.074+0200 I  CONTROL  [initandlisten]
+2019-10-24T00:20:23.074+0200 I  CONTROL  [initandlisten] ** WARNING: This server is bound to local
+host.
+2019-10-24T00:20:23.074+0200 I  CONTROL  [initandlisten] **          Remote systems will be unable
+ to connect to this server.
+2019-10-24T00:20:23.074+0200 I  CONTROL  [initandlisten] **          Start the server with --bind_
+ip <address> to specify which IP
+2019-10-24T00:20:23.074+0200 I  CONTROL  [initandlisten] **          addresses it should serve res
+ponses from, or with --bind_ip_all to
+2019-10-24T00:20:23.074+0200 I  CONTROL  [initandlisten] **          bind to all interfaces. If th
+is behavior is desired, start the
+2019-10-24T00:20:23.074+0200 I  CONTROL  [initandlisten] **          server with --bind_ip 127.0.0
+.1 to disable this warning.
+2019-10-24T00:20:23.075+0200 I  CONTROL  [initandlisten]
+2019-10-24T00:20:23.075+0200 I  CONTROL  [initandlisten]
+2019-10-24T00:20:23.075+0200 I  CONTROL  [initandlisten] ** WARNING: soft rlimits too low. Number
+of files is 256, should be at least 1000
+MongoDB Enterprise > db.myCollection.find().pretty()
+MongoDB Enterprise > db.myCollection.insertMany([ {"name": "kavindu", "age": 20}, {"name": "John D
+
+2019-10-24T01:25:51.586+0200 E  QUERY    [js] uncaught exception: SyntaxError: "" literal not term
+inated before end of script :
+@(shell):1:77
+MongoDB Enterprise > show databases
+admin   0.000GB
+config  0.000GB
+crudDB  0.000GB
+local   0.000GB
+MongoDB Enterprise > use crudDB
+switched to db crudDB
+MongoDB Enterprise > db.myCollection.insert({"name": "ilia", "age" : 23, "location": "germany"})
+WriteResult({ "nInserted" : 1 })
+MongoDB Enterprise > db.myCollection.insertMany([ {"name": "kavindu", "age": 20}, {"name": "John D
+
+2019-10-24T01:26:46.550+0200 E  QUERY    [js] uncaught exception: SyntaxError: "" literal not term
+inated before end of script :
+@(shell):1:77
+MongoDB Enterprise > db.myCollection.insertMany([ {"name": "kavindu", "age": 20}, {"name": "John D
+oe", "location" : "colombo"}
+... ])
+{
+        "acknowledged" : true,
+        "insertedIds" : [
+                ObjectId("5db0e1dafe6fcca99fb84211"),
+                ObjectId("5db0e1dafe6fcca99fb84212")
+        ]
+}
+MongoDB Enterprise > db.myCollection.find()
+{ "_id" : ObjectId("5db0d9fac093d49d6ed28f6e"), "name" : "ilia", "age" : 23, "location" : "germany
+" }
+{ "_id" : ObjectId("5db0dd81c093d49d6ed28f6f"), "name" : "navindu", "age" : 22 }
+{ "_id" : ObjectId("5db0de2dc093d49d6ed28f70"), "name" : "kavindu", "age" : 23 }
+{ "_id" : ObjectId("5db0de2dc093d49d6ed28f71"), "name" : "John Doe", "age" : 25, "location" : "col
+ombo" }
+{ "_id" : ObjectId("5db0e1b1fe6fcca99fb84210"), "name" : "ilia", "age" : 23, "location" : "germany
+" }
+{ "_id" : ObjectId("5db0e1dafe6fcca99fb84211"), "name" : "kavindu", "age" : 20 }
+{ "_id" : ObjectId("5db0e1dafe6fcca99fb84212"), "name" : "John Doe", "location" : "colombo" }
+MongoDB Enterprise > db.myCollection.find().pretty()
+{
+        "_id" : ObjectId("5db0d9fac093d49d6ed28f6e"),
+        "name" : "ilia",
+        "age" : 23,
+        "location" : "germany"
+}
+{
+        "_id" : ObjectId("5db0dd81c093d49d6ed28f6f"),
+        "name" : "navindu",
+        "age" : 22
+}
+{
+        "_id" : ObjectId("5db0de2dc093d49d6ed28f70"),
+        "name" : "kavindu",
+        "age" : 23
+}
+{
+        "_id" : ObjectId("5db0de2dc093d49d6ed28f71"),
+        "name" : "John Doe",
+        "age" : 25,
+        "location" : "colombo"
+}
+{
+        "_id" : ObjectId("5db0e1b1fe6fcca99fb84210"),
+        "name" : "ilia",
+        "age" : 23,
+        "location" : "germany"
+}
+{
+        "_id" : ObjectId("5db0e1dafe6fcca99fb84211"),
+        "name" : "kavindu",
+        "age" : 20
+}
+{
+        "_id" : ObjectId("5db0e1dafe6fcca99fb84212"),
+        "name" : "John Doe",
+        "location" : "colombo"
+}
+MongoDB Enterprise > db.myCollection.update({"navindu"}, {$unset:age});
+2019-10-24T01:29:51.817+0200 E  QUERY    [js] uncaught exception: SyntaxError: missing : after pro
+perty id :
+@(shell):1:33
+MongoDB Enterprise > db.myCollection.update({name:"navindu"}, {$unset:age});
+2019-10-24T01:30:06.684+0200 E  QUERY    [js] uncaught exception: ReferenceError: age is not defin
+ed :
+@(shell):1:43
+MongoDB Enterprise > db.myCollection.update({name:"navindu"}, {$unset:"age"});
+WriteResult({
+        "nMatched" : 0,
+        "nUpserted" : 0,
+        "nModified" : 0,
+        "writeError" : {
+                "code" : 9,
+                "errmsg" : "Modifiers operate on fields but we found type string instead. For exam
+ple: {$mod: {<field>: ...}} not {$unset: \"age\"}"
+        }
+})
+MongoDB Enterprise > db.myCollection.find().pretty()
+{
+        "_id" : ObjectId("5db0d9fac093d49d6ed28f6e"),
+        "name" : "ilia",
+        "age" : 23,
+        "location" : "germany"
+}
+{
+        "_id" : ObjectId("5db0dd81c093d49d6ed28f6f"),
+        "name" : "navindu",
+        "age" : 22
+}
+{
+        "_id" : ObjectId("5db0de2dc093d49d6ed28f70"),
+        "name" : "kavindu",
+        "age" : 23
+}
+{
+        "_id" : ObjectId("5db0de2dc093d49d6ed28f71"),
+        "name" : "John Doe",
+        "age" : 25,
+        "location" : "colombo"
+}
+{
+        "_id" : ObjectId("5db0e1b1fe6fcca99fb84210"),
+        "name" : "ilia",
+        "age" : 23,
+        "location" : "germany"
+}
+{
+        "_id" : ObjectId("5db0e1dafe6fcca99fb84211"),
+        "name" : "kavindu",
+        "age" : 20
+}
+{
+        "_id" : ObjectId("5db0e1dafe6fcca99fb84212"),
+        "name" : "John Doe",
+        "location" : "colombo"
+}
+MongoDB Enterprise > db.myCollection.re
+db.myCollection.reIndex(           db.myCollection.renameCollection(
+db.myCollection.remove(            db.myCollection.replaceOne(
+MongoDB Enterprise > db.myCollection.remove({name:"navindu"})
+WriteResult({ "nRemoved" : 1 })
+MongoDB Enterprise > db.myCollection.find().pretty()
+{
+        "_id" : ObjectId("5db0d9fac093d49d6ed28f6e"),
+        "name" : "ilia",
+        "age" : 23,
+        "location" : "germany"
+}
+{
+        "_id" : ObjectId("5db0de2dc093d49d6ed28f70"),
+        "name" : "kavindu",
+        "age" : 23
+}
+{
+        "_id" : ObjectId("5db0de2dc093d49d6ed28f71"),
+        "name" : "John Doe",
+        "age" : 25,
+        "location" : "colombo"
+}
+{
+        "_id" : ObjectId("5db0e1b1fe6fcca99fb84210"),
+        "name" : "ilia",
+        "age" : 23,
+        "location" : "germany"
+}
+{
+        "_id" : ObjectId("5db0e1dafe6fcca99fb84211"),
+        "name" : "kavindu",
+        "age" : 20
+}
+{
+        "_id" : ObjectId("5db0e1dafe6fcca99fb84212"),
+        "name" : "John Doe",
+        "location" : "colombo"
+}
+MongoDB Enterprise > db.myCollection.remove()
+2019-10-24T01:31:24.946+0200 E  QUERY    [js] uncaught exception: Error: remove needs a query :
+DBCollection.prototype._parseRemove@src/mongo/shell/collection.js:357:15
+DBCollection.prototype.remove@src/mongo/shell/collection.js:384:18
+@(shell):1:1
+MongoDB Enterprise > db.myCollection.remove({})
+WriteResult({ "nRemoved" : 6 })
+MongoDB Enterprise > db.myCollection.find().pretty()
+MongoDB Enterprise >
+bye
+ elijahozhmegov@Elijahs-MacBook-Air  ~/Education/Uni/CS for Big Data/mongoDB/mongodb-macos-x86_64
+-enterprise-4.2.1/bin 
