@@ -98,3 +98,4 @@ def consume():
 if __name__ == "__main__":
     consume()
 ```
+![gif](https://thumbs.gfycat.com/FlatUnluckyAsianconstablebutterfly-size_restricted.gif)
