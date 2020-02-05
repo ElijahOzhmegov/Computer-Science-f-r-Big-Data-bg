@@ -1,7 +1,5 @@
 import time
-from kafka_utils import publish_message, connect_kafka_producer
-
-TOPIC = "numbers"
+from kafka_utils import publish_message, connect_kafka_producer, TOPIC
 
 
 def infinite_sequence(even=True):

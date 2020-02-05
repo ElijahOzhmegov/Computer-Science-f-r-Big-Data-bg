@@ -1,20 +1,18 @@
-from kafka import KafkaConsumer
-from utils import TOPIC
+from kafka_utils import connect_kafka_consumer
 
 
-def consume():
-    consumer = KafkaConsumer(TOPIC, auto_offset_reset='earliest',
-                             bootstrap_servers=['localhost:9092'],
-                             api_version=(0, 10), consumer_timeout_ms=3000)  # TODO: remove the hardcoded values
+def read_messages(_consumer):
     try:
-        for msg in consumer:
+        for msg in _consumer:
             print(msg.key.decode('utf-8'), int(msg.value), sep=": ")
     except KeyboardInterrupt:
         print("Interrupted!")
 
-    if consumer is not None:
-        consumer.close()
 
+def consume():
+    consumer = connect_kafka_consumer()
+    read_messages(consumer)
+    if consumer is not None: consumer.close()
 
 if __name__ == "__main__":
     consume()
