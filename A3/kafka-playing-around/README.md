@@ -11,7 +11,7 @@ following purposes:
 4. ETL (Extraction, Transformation, Loading) **Hello from BI**
 5. Database
 
-To launch **Apache-Kafka** it essential to launch **Apache-Zookeeper**,
+To launch **Apache-Kafka** it is essential to launch **Apache-Zookeeper**,
 because **AK** needs to elect a new controller (sometimes),
 watch over cluster members (always), to configure a topic and a few
 another important actions, which can be found [here](https://www.quora.com/What-is-the-actual-role-of-Zookeeper-in-Kafka-What-benefits-will-I-miss-out-on-if-I-don%E2%80%99t-use-Zookeeper-and-Kafka-together/answer/Gwen-Shapira).
@@ -98,4 +98,17 @@ def consume():
 if __name__ == "__main__":
     consume()
 ```
+Then we can run all three Python scripts simultaneously, besides 
+Zookeeper and Kafka. (`launch_tmux.sh`)
+Here are the gif of the console output in my terminal multiplexer.
 ![gif](https://thumbs.gfycat.com/FlatUnluckyAsianconstablebutterfly-size_restricted.gif)
+The left upper tile is Zookeeper-server.
+The middle upper tile is Kafka-server.
+The right upper tile is htop (to take a glance at performance).
+
+The left lower tile is **Producer A**.
+The middle lower tile is **Producer B**.
+The right lower tile is **Consumer C**.
+[full version](https://gfycat.com/ru/flatunluckyasianconstablebutterfly)
+
+## 2. Read the entire Documentation of Apache Kafka.
