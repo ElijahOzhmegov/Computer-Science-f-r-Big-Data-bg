@@ -14,7 +14,6 @@ tmux send-keys "zookeeper-server-start /usr/local/etc/kafka/zookeeper.properties
 
 # Split pane 0 horizontally by 50%, start kafka-server
 tmux splitw -v -p 50
-#tmux send-keys "sleep 4; nvim" C-m
 
 tmux selectp -t 0
 tmux splitw -h -p 66
@@ -34,7 +33,6 @@ tmux send-keys "$venv; sleep 2; python3.7 Producer\ B.py" C-m
 tmux splitw -h -p 33
 tmux send-keys "$venv; while True; do sleep 1; python3.7 Consumer\ C.py; done" C-m
 
-#tmux selectp -t 4
 
 tmux attach-session -t $session
 
