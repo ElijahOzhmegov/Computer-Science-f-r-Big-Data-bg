@@ -15,16 +15,14 @@ def produce_numbers(kafka_producer_, sleep_time=2, even=True):
         for number in infinite_sequence(even):
             publish_message(kafka_producer_, TOPIC, key, str(number))
             time.sleep(sleep_time)
-    except KeyboardInterrupt:
-        print("Interrupted!")
+    except KeyboardInterrupt: print("Interrupted!")
 
 
 def produce(sleep_time, even):
     kafka_producer = connect_kafka_producer()
     produce_numbers(kafka_producer, sleep_time, even)
 
-    if kafka_producer is not None:
-        kafka_producer.close()
+    if kafka_producer is not None: kafka_producer.close()
 
 
 if __name__ == '__main__':

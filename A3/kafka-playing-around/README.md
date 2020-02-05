@@ -68,7 +68,7 @@ from producer_utils import produce
 if __name__ == "__main__":
     produce(sleep_time=1, even=True)
 ```
-Below code for​ Producer B​. It writes even numbers every 
+Below code for​ **Producer B**​. It writes odd numbers every 
 **2 seconds**.
 ```python
 from producer_utils import produce
@@ -76,7 +76,7 @@ from producer_utils import produce
 if __name__ == "__main__":
     produce(sleep_time=2, even=False)
 ```
-Below code for​ Producer C​. It prints values from the topic named 
+Below code for​ **Consumer C**​. It prints values from the topic named 
 `numbers`.
 ```python
 from kafka_utils import connect_kafka_consumer
