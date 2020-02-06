@@ -102,13 +102,59 @@ Then we can run all three Python scripts simultaneously, besides
 Zookeeper and Kafka. (`launch_tmux.sh`)
 Here are the gif of the console output in my terminal multiplexer.
 ![gif](https://thumbs.gfycat.com/FlatUnluckyAsianconstablebutterfly-size_restricted.gif)
-The left upper tile is Zookeeper-server.
-The middle upper tile is Kafka-server.
-The right upper tile is htop (to take a glance at performance).
 
-The left lower tile is **Producer A**.
-The middle lower tile is **Producer B**.
-The right lower tile is **Consumer C**.
-[full version](https://gfycat.com/ru/flatunluckyasianconstablebutterfly)
+1. The left upper tile is Zookeeper-server.
+1. The middle upper tile is Kafka-server.
+1. The right upper tile is htop (to take a glance at performance).
+1. The left lower tile is **Producer A**.
+1. The middle lower tile is **Producer B**.
+1. The right lower tile is **Consumer C**.
+
+[full version video](https://gfycat.com/ru/flatunluckyasianconstablebutterfly)
 
 ## 2. Read the entire Documentation of Apache Kafka.
+### What is new / different about Kafka Streams? (Write two paragraphs.)
+
+Let's compare Kafka Streams with Kafka.
+
+Kafka Streams is a client library for building 
+applications and microservices, where the input 
+and output data are stored in Kafka clusters. 
+It combines the simplicity of writing and deploying 
+standard Java and Scala applications on the client 
+side with the benefits of Kafka's server-side 
+cluster technology.
+
+Kafka Streams has a low barrier to entry: You can quickly 
+write and run a small-scale proof-of-concept on a single 
+machine; and you only need to run additional instances of 
+your application on multiple machines to scale up to high-volume 
+production workloads. Kafka Streams transparently handles 
+the load balancing of multiple instances of the same 
+application by leveraging Kafka's parallelism model.
+
+Some highlights of Kafka Streams:
+
+* Designed as a simple and lightweight client library, which can be easily 
+  embedded in any Java application and integrated with any existing
+  packaging, deployment and operational tools that users have for 
+  their streaming applications.
+* Has no external dependencies on systems other than Apache Kafka itself 
+  as the internal messaging layer; notably, it uses Kafka's partitioning 
+  model to horizontally scale processing while maintaining strong 
+  ordering guarantees.
+* Supports fault-tolerant local state, which enables very fast and 
+  efficient stateful operations like windowed joins and aggregations.
+* Supports exactly-once processing semantics to guarantee that each 
+  record will be processed once and only once even when there is a 
+  failure on either Streams clients or Kafka brokers in the middle 
+  of processing.
+* Employs one-record-at-a-time processing to achieve millisecond 
+  processing latency, and supports event-time based windowing 
+  operations with out-of-order arrival of records.
+* Offers necessary stream processing primitives, along with a 
+  high-level Streams DSL and a low-level Processor API.
+
+## 3. Watch the **AlphaGo** Movie on Netflix
+Done!
+
