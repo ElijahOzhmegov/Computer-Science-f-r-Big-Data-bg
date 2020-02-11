@@ -72,6 +72,26 @@ Redis instances to be exact copies of master instances.
 
 [My Pet Project](https://github.com/ElijahOzhmegov/Smake-Snake-AI-)
 
+I have doubt about the need in a database for my PET project. 
+But if had to create one, firstly I would create it for keeping
+players' scores, then I would use the cheapest one, I guess for me 
+it would be a master-slave replication.
+
+
+### What are the advantages and disadvantages of (web) caching?
+
+**Pros**
+* Caching improves page load times and can reduce the load on your servers and databases.
+* Databases often benefit from a uniform distribution of reads and writes across its 
+  partitions. Popular items can skew the distribution, causing bottlenecks. Putting a 
+  cache in front of a database can help absorb uneven loads and spikes in traffic.
+* Web servers can also cache requests, returning responses without having to 
+  contact application servers.
+
+**Cons**
+* Need to maintain consistency between caches and the source of truth such as the database through cache invalidation.
+* Cache invalidation is a difficult problem, there is additional complexity associated with when to update the cache.
+* Need to make application changes such as adding Redis or memcached.
 
 
 
