@@ -93,6 +93,33 @@ it would be a master-slave replication.
 * Cache invalidation is a difficult problem, there is additional complexity associated with when to update the cache.
 * Need to make application changes such as adding Redis or memcached.
 
+### What is the difference between RPC and Rest?
 
+**RPC** (Remote procedure call) is a request-response protocol.
+A client causes a procedure to execute on a different address space, usually a remote 
+server. The procedure is coded as if it were a local procedure call, abstracting away 
+the details of how to communicate with the server from the client program. Remote calls
+are usually slower and less reliable than local calls so it is helpful to distinguish 
+RPC calls from local calls.
 
+**REST** (Representational state transfer) is an architectural style enforcing a client/server model where the client acts 
+on a set of resources managed by the server. The server provides a representation of 
+resources and actions that can either manipulate or get a new representation of 
+resources. All communication must be stateless and cacheable.
 
+**Conclusion**: RPC is about do one job, but well. When REST API’s only concern is the
+data that belongs to that specific domain.
+
+### How many cores does the Stackoverflow Servers have, with what chip Hz and how many MB L2 cache?
+
+According to [this source](https://nickcraver.com/blog/2016/03/29/stack-overflow-the-hardware-2016-edition/).
+* SQL Servers (Stack Overflow Cluster) | Dual E5-2697v2 Processors (12 cores @2.7–3.5GHz each) | 12 x 256 KB 8-way set
+* SQL Servers (Stack Exchange “…and everything else” Cluster) | Dual E5-2667v3 Processors (8 cores @3.2–3.6GHz each) | 8 x 256 KB 8-way set
+* Web Servers | Dual E5-2690v3 Processors (12 cores @2.6–3.5GHz each) | 12 x 256 KB 8-way set
+
+## 2) GPU (1 page): Do a little research on GPU &TPU.
+
+### How would you get a simple GPU "Hello World" Example run on Google or AWS? (theoretically. Not practically!)
+
+1. Via [colab.research.google.com](https://colab.research.google.com/notebooks/intro.ipynb)
+2. Like [this](TensorFlow_with_GPU.ipynb)
